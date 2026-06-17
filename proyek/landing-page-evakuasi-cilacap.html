@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peta Jalur Evakuasi Banjir – Kabupaten Cilacap</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#FFFFFF;
+  --offwhite:#F0F6FF;
+  --blue-50:#EFF6FF;
+  --blue-100:#DBEAFE;
+  --blue-200:#BFDBFE;
+  --blue-400:#60A5FA;
+  --blue-500:#3B82F6;
+  --blue-600:#2563EB;
+  --blue-700:#1D4ED8;
+  --blue-900:#1E3A8A;
+  --text:#0F172A;
+  --text-soft:#334155;
+  --muted:#64748B;
+  --border:#CBD5E1;
+  --border-light:#E2E8F0;
+  --green:#16A34A;
+  --orange:#EA580C;
+  --red:#DC2626;
+  --yellow:#CA8A04;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;height:64px;
+  background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border-light);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;
+}
+.nav-logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--blue-600),var(--blue-400));display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(37,99,235,0.3)}
+.nav-logo svg{width:18px;height:18px}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-wordmark{font-size:13px;font-weight:700;color:var(--blue-700)}
+.nav-wordmark span{color:var(--blue-500)}
+.nav-pill{display:flex;align-items:center;gap:7px;background:var(--blue-600);color:white;padding:8px 20px;border-radius:100px;font-size:12px;font-weight:600;text-decoration:none;transition:all 0.2s;box-shadow:0 2px 10px rgba(37,99,235,0.25)}
+.nav-pill:hover{background:var(--blue-700);transform:translateY(-1px);box-shadow:0 4px 16px rgba(37,99,235,0.35)}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:100px 2rem 80px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#EFF6FF 0%,#DBEAFE 40%,#EFF6FF 100%);
+}
+.hero-blob1{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.1),transparent 70%);top:-100px;right:-100px;pointer-events:none}
+.hero-blob2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(96,165,250,0.12),transparent 70%);bottom:-80px;left:-80px;pointer-events:none;animation:blobmove 8s ease-in-out infinite alternate}
+@keyframes blobmove{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.1) translate(20px,-20px)}}
+.hero-content{position:relative;z-index:1;max-width:820px}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid var(--blue-200);padding:5px 14px;border-radius:100px;font-size:10px;font-weight:600;color:var(--blue-600);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:24px;box-shadow:0 2px 8px rgba(37,99,235,0.08)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:livepulse 2s infinite}
+@keyframes livepulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(22,163,74,0.5)}50%{opacity:0.8;box-shadow:0 0 0 5px rgba(22,163,74,0)}}
+.hero h1{font-size:clamp(2rem,4.5vw,3.6rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin-bottom:18px;color:var(--text)}
+.hero h1 .hl{background:linear-gradient(135deg,var(--blue-600),var(--blue-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(0.9rem,1.5vw,1rem);color:var(--muted);max-width:540px;margin:0 auto 40px;line-height:1.75}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:64px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--blue-600);color:white;padding:13px 28px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 16px rgba(37,99,235,0.3)}
+.btn-primary:hover{background:var(--blue-700);transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,0.4)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--blue-600);padding:13px 28px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;border:1.5px solid var(--blue-200);box-shadow:0 2px 8px rgba(37,99,235,0.08)}
+.btn-outline:hover{border-color:var(--blue-400);background:var(--blue-50)}
+.hero-stats{display:flex;background:white;border:1px solid var(--border-light);border-radius:16px;overflow:hidden;max-width:600px;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+.stat-box{flex:1;padding:20px 12px;text-align:center;border-right:1px solid var(--border-light)}
+.stat-box:last-child{border-right:none}
+.stat-num{font-size:1.5rem;font-weight:800;color:var(--blue-600);line-height:1;margin-bottom:4px}
+.stat-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em}
+
+/* SHARED */
+section{padding:90px 2rem;position:relative}
+.container{max-width:1080px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue-600);margin-bottom:12px}
+.tag::before{content:'';width:18px;height:2px;background:linear-gradient(90deg,var(--blue-600),var(--blue-400));border-radius:2px}
+h2.sec-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-0.02em;line-height:1.15;margin-bottom:12px;color:var(--text)}
+h2.sec-title .hl{background:linear-gradient(135deg,var(--blue-600),var(--blue-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-sub{font-size:14px;color:var(--muted);max-width:500px;line-height:1.75}
+
+/* FITUR */
+.fitur-section{background:var(--offwhite)}
+.fitur-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:56px}
+.fitur-big{grid-row:span 2;background:linear-gradient(135deg,var(--blue-600),var(--blue-500));border-radius:20px;padding:36px 32px;position:relative;overflow:hidden;transition:all 0.3s;color:white}
+.fitur-big:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(37,99,235,0.3)}
+.fitur-big::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.08);pointer-events:none}
+.fitur-sm{background:white;border:1px solid var(--border-light);border-radius:20px;padding:28px 24px;transition:all 0.3s}
+.fitur-sm:hover{border-color:var(--blue-300,#93C5FD);transform:translateY(-3px);box-shadow:0 8px 28px rgba(37,99,235,0.1)}
+.f-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.f-icon svg{width:22px;height:22px}
+.f-title{font-size:16px;font-weight:700;margin-bottom:8px}
+.f-desc{font-size:13px;line-height:1.75}
+.f-chip{display:inline-block;margin-top:12px;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,0.2);color:white}
+
+/* PETA MOCKUP */
+.peta-section{background:white}
+.peta-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;margin-top:56px}
+.peta-frame{background:white;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.1)}
+.peta-topbar{background:var(--offwhite);border-bottom:1px solid var(--border-light);padding:10px 14px;display:flex;align-items:center;gap:6px}
+.p-dot{width:8px;height:8px;border-radius:50%}
+.p-url{flex:1;background:white;border:1px solid var(--border-light);border-radius:5px;padding:4px 10px;font-size:10px;color:var(--muted);margin-left:8px}
+.map-canvas{height:220px;position:relative;overflow:hidden;background:#E8F0E8}
+.map-gl{position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px);background-size:28px 28px}
+.mzone{position:absolute;border-radius:6px}
+.mroad{position:absolute;border-radius:3px}
+.mpin{position:absolute;width:11px;height:11px;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.3)}
+.map-legend{position:absolute;bottom:10px;left:10px;background:rgba(255,255,255,0.95);border:1px solid var(--border-light);border-radius:8px;padding:8px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.ml-title{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;font-weight:600}
+.ml-row{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+.ml-line{width:14px;height:3px;border-radius:2px}
+.ml-lbl{font-size:9px;color:var(--text-soft)}
+.peta-panels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px}
+.pp{background:var(--offwhite);border:1px solid var(--border-light);border-radius:8px;padding:10px}
+.pp-l{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:4px;font-weight:600}
+.pp-v{font-size:18px;font-weight:800;line-height:1;color:var(--text)}
+.pp-s{font-size:9px;color:var(--muted);margin-top:2px}
+.peta-info{display:flex;flex-direction:column;gap:32px}
+.info-item{display:flex;gap:16px;align-items:flex-start}
+.info-num{font-size:2rem;font-weight:800;line-height:1;color:var(--blue-200);flex-shrink:0;min-width:48px}
+.info-t{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px}
+.info-d{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* RISIKO */
+.risiko-section{background:var(--offwhite)}
+.risiko-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:48px}
+.rcard{border-radius:16px;padding:24px 20px;border:1.5px solid;transition:all 0.25s;cursor:default;background:white}
+.rcard:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.1)}
+.r-rendah{border-color:#BBF7D0}.r-sedang{border-color:#FED7AA}.r-tinggi{border-color:#FECACA}.r-kritis{border-color:#FCA5A5}
+.r-badge2{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:14px}
+.r-rendah .r-badge2{background:#DCFCE7;color:#15803D}
+.r-sedang .r-badge2{background:#FEF3C7;color:#B45309}
+.r-tinggi .r-badge2{background:#FEE2E2;color:#B91C1C}
+.r-kritis .r-badge2{background:#FFE4E6;color:#9F1239}
+.r-color2{font-size:17px;font-weight:700;margin-bottom:8px}
+.r-rendah .r-color2{color:#16A34A}.r-sedang .r-color2{color:#D97706}.r-tinggi .r-color2{color:#DC2626}.r-kritis .r-color2{color:#BE123C}
+.r-desc2{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:12px}
+.r-act{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600}
+.r-rendah .r-act{color:#16A34A}.r-sedang .r-act{color:#D97706}.r-tinggi .r-act{color:#DC2626}.r-kritis .r-act{color:#BE123C}
+
+/* CARA */
+.cara-section{background:white}
+.cara-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-top:56px}
+.steps{display:flex;flex-direction:column}
+.step{display:flex;gap:18px;padding-bottom:36px;position:relative}
+.step:not(:last-child)::after{content:'';position:absolute;left:20px;top:42px;bottom:0;width:1px;background:linear-gradient(180deg,var(--blue-200),transparent)}
+.step-circle{width:42px;height:42px;border-radius:50%;flex-shrink:0;background:var(--blue-600);display:flex;align-items:center;justify-content:center;z-index:1;font-size:14px;font-weight:800;color:white;box-shadow:0 4px 12px rgba(37,99,235,0.3)}
+.step-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:5px;margin-top:8px}
+.step-desc{font-size:13px;color:var(--muted);line-height:1.7}
+.url-card{margin-top:12px;background:var(--blue-50);border:1px solid var(--blue-200);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--blue-700)}
+.url-icon{width:30px;height:30px;border-radius:8px;background:var(--blue-600);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.url-icon svg{width:14px;height:14px}
+.cara-right{position:sticky;top:80px}
+.sframe{background:white;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.1)}
+.sbar{background:var(--offwhite);border-bottom:1px solid var(--border-light);padding:10px 14px;display:flex;align-items:center;gap:6px}
+.sdot{width:8px;height:8px;border-radius:50%}
+.smap{height:200px;position:relative;overflow:hidden;background:#E8F0E8}
+.sgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px);background-size:22px 22px}
+.spanel{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;padding:12px}
+.spc{background:var(--offwhite);border:1px solid var(--border-light);border-radius:8px;padding:12px}
+.spl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;font-weight:600}
+.spv{font-size:20px;font-weight:800;line-height:1;color:var(--text)}
+.sps{font-size:9px;color:var(--muted);margin-top:3px}
+.sleg{padding:0 12px 12px;display:flex;gap:8px;flex-wrap:wrap}
+.sli{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--muted)}
+.sld{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--blue-600),var(--blue-700));text-align:center;padding:100px 2rem}
+.cta-section .container{position:relative;z-index:1}
+.cta-section h2{font-size:clamp(1.6rem,3vw,2.6rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:12px;color:white}
+.cta-section p{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:36px}
+.cta-section .tag{color:rgba(255,255,255,0.7)}
+.cta-section .tag::before{background:rgba(255,255,255,0.4)}
+.btn-white{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--blue-700);padding:13px 28px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 16px rgba(0,0,0,0.15)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.2)}
+
+/* FOOTER */
+footer{background:var(--blue-900);padding:44px 2rem;text-align:center}
+.chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.chip{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:5px 14px;font-size:11px;color:rgba(255,255,255,0.6)}
+footer p{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.9}
+footer strong{color:rgba(255,255,255,0.7)}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s cubic-bezier(0.16,1,0.3,1),transform 0.6s cubic-bezier(0.16,1,0.3,1)}
+.reveal.up{opacity:1;transform:none}
+.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}.d4{transition-delay:0.4s}
+
+@media(max-width:768px){
+  .fitur-grid,.peta-grid,.cara-grid{grid-template-columns:1fr}
+  .fitur-big{grid-row:auto}
+  .cara-right{display:none}
+  nav{padding:0 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div class="nav-wordmark">Peta Evakuasi <span>Cilacap</span></div>
+  </a>
+  <a class="nav-pill" href="/index.html">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    Buka Peta
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob1"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><div class="live-dot"></div>Sistem Aktif · Data Real-Time</div>
+    <h1>Peta Jalur Evakuasi Banjir<br><span class="hl">Kabupaten Cilacap</span></h1>
+    <p class="hero-sub">Sistem informasi berbasis web yang menampilkan jalur evakuasi, titik aman, dan prediksi risiko banjir secara real-time menggunakan model kecerdasan buatan Random Forest.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="/index.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Buka Peta Sekarang
+      </a>
+      <a class="btn-outline" href="#fitur">Lihat Fitur ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-num">4</div><div class="stat-lbl">Kelas Risiko</div></div>
+      <div class="stat-box"><div class="stat-num">Live</div><div class="stat-lbl">Data Curah Hujan</div></div>
+      <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Hari Prediksi</div></div>
+      <div class="stat-box"><div class="stat-num">Free</div><div class="stat-lbl">Akses Gratis</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FITUR -->
+<section class="fitur-section" id="fitur">
+  <div class="container">
+    <div class="reveal">
+      <div class="tag">Fitur Unggulan</div>
+      <h2 class="sec-title">Semua yang Anda Butuhkan<br><span class="hl">dalam Satu Peta</span></h2>
+    </div>
+    <div class="fitur-grid">
+      <div class="fitur-big reveal d1">
+        <div class="f-icon" style="background:rgba(255,255,255,0.2)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="f-title" style="color:white">Prediksi Risiko Berbasis AI</div>
+        <div class="f-desc" style="color:rgba(255,255,255,0.8)">Model Machine Learning Random Forest memprediksi risiko banjir 3 hari ke depan berdasarkan data curah hujan real-time dari Open-Meteo API.</div>
+        <div class="f-chip">Model Random Forest</div>
+      </div>
+      <div class="fitur-sm reveal d2">
+        <div class="f-icon" style="background:var(--blue-50)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </div>
+        <div class="f-title" style="color:var(--text)">Layer Peta Interaktif</div>
+        <div class="f-desc" style="color:var(--muted)">Aktifkan/nonaktifkan layer Jalur Evakuasi, Titik Aman, dan Zona Rawan Banjir. Pilih basemap Terang, OpenStreetMap, atau Satelit.</div>
+      </div>
+      <div class="fitur-sm reveal d3">
+        <div class="f-icon" style="background:#F0FDF4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div class="f-title" style="color:var(--text)">Cari Titik Evakuasi</div>
+        <div class="f-desc" style="color:var(--muted)">Temukan lokasi evakuasi terdekat berdasarkan nama desa atau kecamatan. Peta langsung mengarah ke lokasi.</div>
+      </div>
+      <div class="fitur-sm reveal d2">
+        <div class="f-icon" style="background:#FFF7ED">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div class="f-title" style="color:var(--text)">4 Level Klasifikasi Risiko</div>
+        <div class="f-desc" style="color:var(--muted)">Dari Rendah (hijau) hingga Kritis (merah) — setiap wilayah punya kode warna yang intuitif dan mudah dipahami.</div>
+      </div>
+      <div class="fitur-sm reveal d3">
+        <div class="f-icon" style="background:var(--blue-50)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div class="f-title" style="color:var(--text)">Tanpa Instalasi Apapun</div>
+        <div class="f-desc" style="color:var(--muted)">Direkomendasikan melalui tablet atau laptop untuk pengalaman terbaik. Cukup buka browser dan internet, langsung bisa digunakan.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PETA -->
+<section class="peta-section" id="tentang">
+  <div class="container">
+    <div class="peta-grid">
+      <div class="reveal">
+        <div class="peta-frame">
+          <div class="peta-topbar">
+            <div class="p-dot" style="background:#FF5F57"></div>
+            <div class="p-dot" style="background:#FFBD2E"></div>
+            <div class="p-dot" style="background:#28C840"></div>
+            <div class="p-url">peta-evakuasi-cilacap.vercel.app</div>
+          </div>
+          <div class="map-canvas">
+            <div class="map-gl"></div>
+            <div class="mzone" style="width:40%;height:35%;background:#DC2626;top:10%;left:5%;opacity:0.25"></div>
+            <div class="mzone" style="width:30%;height:28%;background:#EA580C;top:48%;left:54%;opacity:0.25"></div>
+            <div class="mzone" style="width:24%;height:24%;background:#16A34A;top:60%;left:8%;opacity:0.25"></div>
+            <div class="mzone" style="width:18%;height:18%;background:#CA8A04;top:12%;left:62%;opacity:0.25"></div>
+            <div class="mroad" style="width:72%;height:3px;background:#DC2626;top:32%;left:8%;transform:rotate(-4deg)"></div>
+            <div class="mroad" style="width:52%;height:3px;background:#EA580C;top:56%;left:22%;transform:rotate(3deg)"></div>
+            <div class="mroad" style="width:32%;height:2px;background:#16A34A;top:73%;left:8%;transform:rotate(-2deg)"></div>
+            <div class="mpin" style="background:#16A34A;top:28%;left:50%"></div>
+            <div class="mpin" style="background:#2563EB;top:55%;left:32%"></div>
+            <div class="mpin" style="background:#CA8A04;top:70%;left:68%"></div>
+            <div class="mpin" style="background:#16A34A;top:42%;left:18%"></div>
+            <div class="map-legend">
+              <div class="ml-title">Legenda</div>
+              <div class="ml-row"><div class="ml-line" style="background:#DC2626"></div><span class="ml-lbl">Kritis</span></div>
+              <div class="ml-row"><div class="ml-line" style="background:#EA580C"></div><span class="ml-lbl">Tinggi</span></div>
+              <div class="ml-row"><div class="ml-line" style="background:#CA8A04"></div><span class="ml-lbl">Sedang</span></div>
+              <div class="ml-row"><div class="ml-line" style="background:#16A34A"></div><span class="ml-lbl">Rendah</span></div>
+            </div>
+          </div>
+          <div class="peta-panels">
+            <div class="pp"><div class="pp-l">Curah Hujan</div><div class="pp-v" style="color:var(--blue-600)">1.6<span style="font-size:11px;font-weight:400;color:var(--muted)">mm</span></div><div class="pp-s">Hari ini</div></div>
+            <div class="pp"><div class="pp-l">Prediksi RF</div><div class="pp-v" style="color:var(--green)">Aman</div><div class="pp-s">Status risiko</div></div>
+            <div class="pp"><div class="pp-l">Titik Aman</div><div class="pp-v" style="color:var(--blue-600)">12</div><div class="pp-s">Aktif</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="peta-info reveal d1">
+        <div>
+          <div class="tag">Tentang Sistem</div>
+          <h2 class="sec-title">Teknologi untuk<br><span class="hl">Keselamatan Jiwa</span></h2>
+          <p class="sec-sub">Dibangun oleh BPBD Kabupaten Cilacap sebagai instrumen kesiapsiagaan bencana berbasis data spasial dan kecerdasan buatan.</p>
+        </div>
+        <div class="info-item">
+          <div class="info-num" style="color:var(--blue-200)">01</div>
+          <div><div class="info-t">Peta Interaktif Berbasis Web</div><div class="info-d">Akses dari browser manapun tanpa install. Zoom, geser, klik objek untuk info detail.</div></div>
+        </div>
+        <div class="info-item">
+          <div class="info-num" style="color:var(--blue-200)">02</div>
+          <div><div class="info-t">Data Real-Time dari Open-Meteo</div><div class="info-d">Curah hujan terkini dan historis 5 hari terakhir diperbarui otomatis setiap saat.</div></div>
+        </div>
+        <div class="info-item">
+          <div class="info-num" style="color:var(--blue-200)">03</div>
+          <div><div class="info-t">Prediksi AI – Random Forest</div><div class="info-d">Model ML terlatih memprediksi risiko 3 hari ke depan berdasarkan pola curah hujan historis.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RISIKO -->
+<section class="risiko-section" id="risiko">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto 48px">
+      <div class="tag" style="justify-content:center">Klasifikasi Risiko</div>
+      <h2 class="sec-title">Pahami <span class="hl">Kode Warna</span> di Peta</h2>
+      <p class="sec-sub" style="margin:0 auto">Setiap warna mencerminkan tingkat bahaya banjir. Kenali artinya agar bisa ambil tindakan yang tepat.</p>
+    </div>
+    <div class="risiko-grid">
+      <div class="rcard r-rendah reveal d1">
+        <div class="r-badge2">Rendah</div>
+        <div class="r-color2">● Hijau</div>
+        <div class="r-desc2">Tingkat bahaya rendah. Kondisi relatif aman, namun tetap pantau perkembangan.</div>
+        <div class="r-act"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Pantau informasi BPBD</div>
+      </div>
+      <div class="rcard r-sedang reveal d2">
+        <div class="r-badge2">Sedang</div>
+        <div class="r-color2">● Kuning</div>
+        <div class="r-desc2">Potensi genangan sedang. Siapkan perlengkapan darurat dan pantau cuaca.</div>
+        <div class="r-act"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Bersiap evakuasi jika perlu</div>
+      </div>
+      <div class="rcard r-tinggi reveal d3">
+        <div class="r-badge2">Tinggi</div>
+        <div class="r-color2">● Oranye</div>
+        <div class="r-desc2">Area rawan banjir dengan risiko nyata terhadap keselamatan jiwa dan harta benda.</div>
+        <div class="r-act"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Segera evakuasi ke titik aman</div>
+      </div>
+      <div class="rcard r-kritis reveal d4">
+        <div class="r-badge2">Kritis</div>
+        <div class="r-color2">● Merah</div>
+        <div class="r-desc2">Bahaya ekstrem. Ancaman banjir sangat serius dan mengancam keselamatan jiwa.</div>
+        <div class="r-act"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>Evakuasi darurat, hubungi BPBD!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARA AKSES -->
+<section class="cara-section" id="akses">
+  <div class="container">
+    <div class="reveal">
+      <div class="tag">Cara Menggunakan</div>
+      <h2 class="sec-title">Mudah Diakses,<br><span class="hl">Cukup 3 Langkah</span></h2>
+      <p class="sec-sub">Tidak perlu daftar atau install apapun. Cukup buka browser.</p>
+    </div>
+    <div class="cara-grid">
+      <div class="steps reveal d1">
+        <div class="step">
+          <div class="step-circle">1</div>
+          <div>
+            <div class="step-title">Buka browser di perangkat Anda</div>
+            <div class="step-desc">Gunakan Chrome, Firefox, Edge, atau Safari. Pastikan tersambung ke internet.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-circle">2</div>
+          <div>
+            <div class="step-title">Ketik atau scan alamat berikut</div>
+            <div class="step-desc">Masukkan URL di bawah ini, atau scan QR code di booth ini.</div>
+            <div class="url-card">
+              <div class="url-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              peta-evakuasi-cilacap.vercel.app
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-circle">3</div>
+          <div>
+            <div class="step-title">Eksplorasi peta secara bebas</div>
+            <div class="step-desc">Aktifkan layer, klik titik evakuasi, baca prediksi risiko banjir di panel kiri. Gratis!</div>
+          </div>
+        </div>
+      </div>
+      <div class="cara-right reveal d2">
+        <div class="sframe">
+          <div class="sbar">
+            <div class="sdot" style="background:#FF5F57"></div>
+            <div class="sdot" style="background:#FFBD2E"></div>
+            <div class="sdot" style="background:#28C840"></div>
+            <div style="flex:1;background:white;border:1px solid var(--border-light);border-radius:5px;padding:4px 10px;margin-left:8px;font-size:10px;color:var(--muted)">peta-evakuasi-cilacap.vercel.app</div>
+          </div>
+          <div class="smap">
+            <div class="sgrid"></div>
+            <div style="position:absolute;width:52%;height:38%;background:#DC2626;top:8%;left:4%;border-radius:6px;opacity:0.2"></div>
+            <div style="position:absolute;width:32%;height:30%;background:#EA580C;top:50%;left:55%;border-radius:6px;opacity:0.2"></div>
+            <div style="position:absolute;width:72%;height:3px;background:#DC2626;top:30%;left:6%;transform:rotate(-3deg);border-radius:2px"></div>
+            <div style="position:absolute;width:48%;height:3px;background:#EA580C;top:58%;left:20%;transform:rotate(2deg);border-radius:2px"></div>
+            <div style="position:absolute;width:11px;height:11px;border-radius:50%;background:#16A34A;border:2px solid white;top:26%;left:52%;box-shadow:0 1px 6px rgba(22,163,74,0.4)"></div>
+            <div style="position:absolute;width:11px;height:11px;border-radius:50%;background:#16A34A;border:2px solid white;top:62%;left:36%;box-shadow:0 1px 6px rgba(22,163,74,0.4)"></div>
+            <div style="position:absolute;width:11px;height:11px;border-radius:50%;background:#16A34A;border:2px solid white;top:45%;left:15%;box-shadow:0 1px 6px rgba(22,163,74,0.4)"></div>
+          </div>
+          <div class="spanel">
+            <div class="spc"><div class="spl">Curah Hujan</div><div class="spv" style="color:var(--blue-600)">1.6 <span style="font-size:11px;font-weight:400;color:var(--muted)">mm</span></div><div class="sps">Hari ini</div></div>
+            <div class="spc"><div class="spl">Status Risiko</div><div class="spv" style="color:var(--green)">Aman</div><div class="sps">Prediksi RF</div></div>
+            <div class="spc"><div class="spl">Titik Aman</div><div class="spv" style="color:var(--blue-600)">12</div><div class="sps">Aktif</div></div>
+            <div class="spc"><div class="spl">Desa Kritis</div><div class="spv" style="color:var(--red)">60</div><div class="sps">Perlu perhatian</div></div>
+          </div>
+          <div class="sleg">
+            <div class="sli"><div class="sld" style="background:#DC2626"></div>Kritis</div>
+            <div class="sli"><div class="sld" style="background:#EA580C"></div>Tinggi</div>
+            <div class="sli"><div class="sld" style="background:#CA8A04"></div>Sedang</div>
+            <div class="sli"><div class="sld" style="background:#16A34A"></div>Rendah</div>
+            <div class="sli"><div class="sld" style="background:#16A34A;border-radius:50%"></div>Titik Evakuasi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="tag">Coba Sekarang</div>
+      <h2>Siap Mengakses Peta Evakuasi?</h2>
+      <p>Akses gratis, tanpa login, langsung dari browser Anda.</p>
+      <a class="btn-white" href="/index.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Buka Peta Sekarang
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="chips">
+    <div class="chip">BPBD Kabupaten Cilacap</div>
+    <div class="chip">Model Random Forest</div>
+    <div class="chip">Open-Meteo API</div>
+    <div class="chip">Vercel Hosting</div>
+    <div class="chip">GeoJSON · Leaflet.js</div>
+  </div>
+  <p><strong>Peta Jalur Evakuasi Banjir – Kabupaten Cilacap</strong><br>
+  Sistem informasi kebencanaan berbasis web · Dikembangkan oleh BPBD Kabupaten Cilacap<br>
+  Untuk informasi dan pelaporan darurat, hubungi BPBD Kabupaten Cilacap</p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up')})
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
